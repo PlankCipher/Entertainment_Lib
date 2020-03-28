@@ -29,11 +29,17 @@ nav, footer {
 nav .container {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    position: relative;
 }
 
 nav h2 {
     color: var(--primary-color);
+}
+
+nav ul {
+    padding: 0px;
+    margin: 0px
 }
 
 nav ul li {
@@ -57,6 +63,18 @@ nav ul a:hover {
     transform: scale(1.1)
 }
 
+nav i {
+    position: absolute;
+    right: 0px;
+    font-size: 20px;
+    color: #fff;
+    padding: 7px;
+    background-color: #2ecc71;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none !important;
+}
+
 main {
     flex: 1
 }
@@ -65,4 +83,37 @@ footer {
     color: var(--primary-color);
     text-align: center;
     font-size: 18px
+}
+
+@media only screen and (max-width: 530px) {
+    nav i {
+        display: block !important;
+    }
+
+    nav ul {
+        position: absolute;
+        bottom: -51px;
+        background-color: #34495e;
+        width: 100%;
+        padding: 0px 5px;
+        display: none;
+    }
+
+    .displayed {
+        display: block
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 5px 0px;
+    }
+
+    nav ul a:hover {
+        background-color: #2ecc71;
+        transform: scale(1);
+    }
+
+    nav h2 {
+        margin-right: 33px
+    }
 }
