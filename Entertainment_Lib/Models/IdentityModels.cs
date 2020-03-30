@@ -20,6 +20,9 @@ namespace Entertainment_Lib.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<TVProgram> TVPrograms { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

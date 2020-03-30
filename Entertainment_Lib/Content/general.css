@@ -85,7 +85,7 @@ footer {
     font-size: 18px
 }
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 750px) {
     nav i {
         display: block !important;
     }
