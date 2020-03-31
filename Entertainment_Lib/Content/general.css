@@ -76,13 +76,27 @@ nav i {
 }
 
 main {
-    flex: 1
+    flex: 1;
+    margin: 10px 0px;
 }
 
 footer {
     color: var(--primary-color);
     text-align: center;
-    font-size: 18px
+    font-size: 18px;
+}
+
+.text-danger {
+    color: #f00;
+}
+
+.input-validation-error {
+    border: 2px solid #f00 !important;
+}
+
+.validation-summary-errors ul {
+    padding: 0px;
+    list-style: none;
 }
 
 @media only screen and (max-width: 750px) {
@@ -92,7 +106,7 @@ footer {
 
     nav ul {
         position: absolute;
-        bottom: -51px;
+        bottom: -153px;
         left: -2.5vw;
         background-color: #2c3e50;
         width: 100vw;

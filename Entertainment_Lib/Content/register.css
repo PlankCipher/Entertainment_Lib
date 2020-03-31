@@ -1,0 +1,50 @@
+﻿main {
+    display: flex;
+    align-items: center
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input:not([type=submit]) {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type=text], input[type=password] {
+    font-size: 20px;
+    padding: 5px 10px;
+    width: 93%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 2px solid #cfcfcf;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border: 2px solid #8f8f8f
+}
+
+.submitBtn {
+    font-size: 21px;
+    padding: 7px 13px;
+    background-color: #cfcfcf;
+    border-radius: 5px;
+    border: 2px solid #8f8f8f;
+    cursor: pointer;
+    transition: 0.2s ease-in-out
+}
+
+.submitBtn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff
+}
+
+.text-danger {
+    margin-bottom: 10px;
+    text-align: center
+}

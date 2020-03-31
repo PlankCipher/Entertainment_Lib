@@ -19,7 +19,5 @@ namespace Entertainment_Lib.Models
 
         [Required]
         public ApplicationUser Owner { get; set; }
-
-        public int OwnerId { get; set; }
     }
 }
