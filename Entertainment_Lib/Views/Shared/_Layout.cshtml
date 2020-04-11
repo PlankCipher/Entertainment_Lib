@@ -36,6 +36,9 @@
                 }
 
                 $("nav ul").toggleClass("displayed");
+
+                var navMenuItems = $(".displayed").children("li");
+                $(".displayed").css("bottom", `${navMenuItems.length * -51}px`);
             });
         });
     </script>
