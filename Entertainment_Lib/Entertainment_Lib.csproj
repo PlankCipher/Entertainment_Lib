@@ -204,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\general.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\register.css" />
     <Content Include="favicon.ico" />

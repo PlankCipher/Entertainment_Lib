@@ -2,3 +2,24 @@
     ViewBag.Title = "Home";
     ViewBag.Css = "~/Content/index.css";
 }
+
+    <div class="wrapper">
+        <div class="categories">
+            <h3>Categories</h3>
+            <ul>
+                <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
+                <li>@Html.ActionLink("TVPrograms", "Index", "TVPrograms")</li>
+            </ul>
+        </div>
+        <div class="latest">
+            <h3>Latest</h3>
+            <ul>
+                <li>
+                    <a href="somewhere">
+                        Some movie
+                        <span class="category">(Movie)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
