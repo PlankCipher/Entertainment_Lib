@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Entertainment_Lib.ViewModels.HomeViewModel 
+
+@{
     ViewBag.Title = "Home";
     ViewBag.Css = "~/Content/index.css";
 }
@@ -14,12 +16,20 @@
         <div class="latest">
             <h3>Latest</h3>
             <ul>
-                <li>
-                    <a href="somewhere">
-                        Some movie
-                        <span class="category">(Movie)</span>
-                    </a>
-                </li>
+                @foreach (Entertainment_Lib.Models.Movie movie in Model.latestMovies)
+                {
+                    <li>
+                        @Html.ActionLink(movie.Name, "Details", "Movie", new { id=movie.Id } , null)
+                        <span class='category'>(Movie)</span>
+                    </li>
+                }
+                @foreach (Entertainment_Lib.Models.TVProgram tvprogram in Model.latestTVPrograms)
+                {
+                    <li>
+                        @Html.ActionLink(tvprogram.Name, "Details", "TVProgram", new { id = tvprogram.Id }, null)
+                        <span class='category'>(TVProgram)</span>
+                    </li>
+                }
             </ul>
         </div>
     </div>
