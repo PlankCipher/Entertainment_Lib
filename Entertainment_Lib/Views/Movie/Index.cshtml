@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Entertainment_Lib.Models.Movie>
+
+@{
     ViewBag.Title = "Movies";
     ViewBag.Css = "~/Content/movies_home.css";
 }
@@ -14,6 +16,12 @@
     <div class="latest">
         <h3>Movies</h3>
         <ul>
+            @foreach(Entertainment_Lib.Models.Movie movie in Model)
+            {
+                <li>
+                    @Html.ActionLink(movie.Name, "Details", "Movie", new { id=movie.Id }, null)
+                </li>
+            }
         </ul>
     </div>
 </div>

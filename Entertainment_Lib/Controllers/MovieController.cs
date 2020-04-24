@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entertainment_Lib.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,18 @@ namespace Entertainment_Lib.Controllers
 {
     public class MovieController : Controller
     {
+        public ApplicationDbContext _context { get; set; }
+
+        public MovieController()
+        {
+            _context = new ApplicationDbContext();
+        }
         // GET: Movie
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Movie> allMovies = _context.Movies.ToList();
+
+            return View(allMovies);
         }
     }
 }
