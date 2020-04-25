@@ -22,5 +22,18 @@ namespace Entertainment_Lib.Controllers
 
             return View(allMovies);
         }
+
+        public ActionResult Details(int id)
+        {
+            Movie movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie != null)
+            {
+                return View(movie);
+            } else
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
     }
 }
