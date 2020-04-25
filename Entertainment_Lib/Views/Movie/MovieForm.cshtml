@@ -1,10 +1,16 @@
 ﻿@model Entertainment_Lib.Models.Movie
 @{
-    ViewBag.Title = "New";
+    if (Model.Id == 0)
+    {
+        ViewBag.Title = "New";
+    } else
+    {
+        ViewBag.Title = "Edit";
+    }
     ViewBag.Css = "~/Content/movies_new.css";
 }
 
-<h2>New movie</h2>
+<h2>@ViewBag.Title movie</h2>
 
 @using (Html.BeginForm("Save", "Movie"))
 {
