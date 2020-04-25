@@ -214,6 +214,7 @@
     <Content Include="Content\movies_home.css" />
     <Content Include="Content\movies_new.css" />
     <Content Include="Content\register.css" />
+    <Content Include="Content\tvprograms_new.css" />
     <Content Include="Content\tvprograms_details.css" />
     <Content Include="Content\tvprograms_home.css" />
     <Content Include="favicon.ico" />
@@ -268,6 +269,7 @@
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\TVProgram\Details.cshtml" />
     <Content Include="Views\Movie\MovieForm.cshtml" />
+    <Content Include="Views\TVProgram\TVProgramForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

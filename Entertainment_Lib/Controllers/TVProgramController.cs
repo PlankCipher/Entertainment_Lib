@@ -1,4 +1,5 @@
 ﻿using Entertainment_Lib.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,38 @@ namespace Entertainment_Lib.Controllers
                 return RedirectToAction("Index");
             }
 
+        }
+
+
+        [Authorize]
+        public ActionResult New()
+        {
+            string userId = User.Identity.GetUserId();
+            TVProgram model = new TVProgram()
+            {
+                Owner = _context.Users.FirstOrDefault(x => x.Id == userId)
+            };
+            return View("TVProgramForm", model);
+        }
+
+        [HttpPost]
+        public ActionResult Save(TVProgram model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("TVProgramForm", model);
+            }
+
+            string userId = User.Identity.GetUserId();
+            model.Owner = _context.Users.FirstOrDefault(x => x.Id == userId);
+
+            if (model.Id == 0)
+            {
+                _context.TVPrograms.Add(model);
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿input:not([type=submit]), textarea {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #cfcfcf;
+}
+
+input, textarea {
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+input:focus, textarea:focus {
+    border: 2px solid #8f8f8f
+}
+
+.submitBtn {
+    padding: 10px;
+    background-color: #2ecc71;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    display: block;
+    text-align: center;
+    width: 100px
+}
+
+textarea {
+    resize: vertical;
+    min-height: 300px
+}
