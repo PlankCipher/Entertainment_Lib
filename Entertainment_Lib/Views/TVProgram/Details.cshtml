@@ -15,15 +15,19 @@
     </div>
     <div class="tvprogram">
         <h3>@Model.tvprogram.Name</h3>
+        <p class="description">
+            @Model.tvprogram.Description
+        </p>
         @if (User.Identity.IsAuthenticated && Model.currentUserId == Model.tvprogram.Owner.Id)
         {
             <a href="/TVProgram/Edit/@Model.tvprogram.Id" class="edit">
                 <i class="far fa-edit"></i>
                 Edit
             </a>
+            <a href="/TVProgram/Delete/@Model.tvprogram.Id" class="delete">
+                <i class="far fa-trash-alt"></i>
+                Delete
+            </a>
         }
-        <p class="description">
-            @Model.tvprogram.Description
-        </p>
     </div>
 </div>

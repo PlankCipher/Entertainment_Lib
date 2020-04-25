@@ -105,5 +105,18 @@ namespace Entertainment_Lib.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            TVProgram tvprogramToDelete = _context.TVPrograms.SingleOrDefault(m => m.Id == id);
+
+            if (tvprogramToDelete != null)
+            {
+                _context.TVPrograms.Remove(tvprogramToDelete);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

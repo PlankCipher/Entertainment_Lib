@@ -95,5 +95,18 @@ namespace Entertainment_Lib.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            Movie movieToDelete = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movieToDelete != null)
+            {
+                _context.Movies.Remove(movieToDelete);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

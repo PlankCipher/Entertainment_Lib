@@ -7,15 +7,33 @@
 
 .wrapper h3 {
     margin: 0px 0px 10px 0px;
-    display: inline-block
+}
+
+.wrapper .edit, .wrapper .delete {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 3px;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+}
+
+.wrapper .edit i, .wrapper .delete i {
+    margin: 0px 3px;
+}
+
+.wrapper .edit:hover, .wrapper .delete:hover {
+    color: #fff
 }
 
 .wrapper .edit {
-    margin-left: 10px;
     background-color: #2ecc71;
-    padding: 10px;
-    border-radius: 3px;
-    color: #fff
+}
+
+.wrapper .delete {
+    background-color: #e74c3c;
+    margin: 4px
 }
 
 .wrapper ul {
@@ -67,5 +85,12 @@
     .wrapper .tvprogram {
         padding-left: 0px;
         margin-top: 20px
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    .wrapper .delete {
+        display: block;
+        margin: 7px 0px 0px 0px
     }
 }
