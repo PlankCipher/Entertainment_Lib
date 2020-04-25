@@ -7,6 +7,15 @@
 
 .wrapper h3 {
     margin: 0px 0px 10px 0px;
+    display: inline-block
+}
+
+.wrapper .edit {
+    margin-left: 10px;
+    background-color: #2ecc71;
+    padding: 10px;
+    border-radius: 3px;
+    color: #fff
 }
 
 .wrapper ul {

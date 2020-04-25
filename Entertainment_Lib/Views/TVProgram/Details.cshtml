@@ -1,7 +1,7 @@
-﻿@model Entertainment_Lib.Models.TVProgram
+﻿@model Entertainment_Lib.ViewModels.TVProgramHomeViewModel
 
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = Model.tvprogram.Name;
     ViewBag.Css = "~/Content/tvprograms_details.css";
 }
 
@@ -14,9 +14,16 @@
         </ul>
     </div>
     <div class="tvprogram">
-        <h3>@Model.Name</h3>
+        <h3>@Model.tvprogram.Name</h3>
+        @if (User.Identity.IsAuthenticated && Model.currentUserId == Model.tvprogram.Owner.Id)
+        {
+            <a href="/TVProgram/Edit/@Model.tvprogram.Id" class="edit">
+                <i class="far fa-edit"></i>
+                Edit
+            </a>
+        }
         <p class="description">
-            @Model.Description
+            @Model.tvprogram.Description
         </p>
     </div>
 </div>
