@@ -28,5 +28,18 @@ namespace Entertainment_Lib.Controllers
 
             return View(tvprograms);
         }
+
+        public ActionResult Details(int id)
+        {
+            TVProgram tvprogram = _context.TVPrograms.SingleOrDefault(m => m.Id == id);
+            if (tvprogram != null)
+            {
+                return View(tvprogram);
+            } else
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
     }
 }

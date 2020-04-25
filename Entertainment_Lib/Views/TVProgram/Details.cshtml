@@ -1,8 +1,8 @@
-﻿@model Entertainment_Lib.Models.Movie
+﻿@model Entertainment_Lib.Models.TVProgram
 
 @{
     ViewBag.Title = Model.Name;
-    ViewBag.Css = "~/Content/movies_details.css";
+    ViewBag.Css = "~/Content/tvprograms_details.css";
 }
 
 <div class="wrapper">
@@ -13,8 +13,10 @@
             <li>@Html.ActionLink("TVPrograms", "Index", "TVProgram")</li>
         </ul>
     </div>
-    <div class="movie">
+    <div class="tvprogram">
         <h3>@Model.Name</h3>
-        <p class="description">@Model.Description</p>
+        <p class="description">
+            @Model.Description
+        </p>
     </div>
 </div>
