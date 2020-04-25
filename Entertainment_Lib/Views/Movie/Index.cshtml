@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<Entertainment_Lib.Models.Movie>
 
 @{
+    // The page title and css file
     ViewBag.Title = "Movies";
     ViewBag.Css = "~/Content/movies_home.css";
 }
 
+<!-- The wrapping div -->
 <div class="wrapper">
+    <!-- Categories div (on the left, or on top) -->
     <div class="categories">
         <h3>Categories</h3>
         <ul>
@@ -13,16 +16,23 @@
             <li>@Html.ActionLink("TVPrograms", "Index", "TVProgram")</li>
         </ul>
     </div>
+    
+    <!-- Latest movies div (on the right, or at the bottom) -->
     <div class="latest">
         <h3>Movies</h3>
+        
         <ul>
+            @* Iterate over each movie of the movies in the model *@
             @foreach(Entertainment_Lib.Models.Movie movie in Model)
             {
+                // And add a link to its Details page
                 <li>
                     @Html.ActionLink(movie.Name, "Details", "Movie", new { id=movie.Id }, null)
                 </li>
             }
         </ul>
+        
+        <!-- The "New" button -->
         <a href="/Movie/New" class="new">
             <i class="fas fa-plus"></i>
             New

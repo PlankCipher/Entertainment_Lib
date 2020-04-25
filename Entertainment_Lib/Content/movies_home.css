@@ -1,14 +1,17 @@
-﻿.wrapper {
+﻿/********* Wrapping div *********/
+.wrapper {
     border: 2px solid var(--primary-color);
     border-radius: 3px;
     display: flex;
     padding: 15px
 }
 
+/********* Headings inside *********/
 .wrapper h3 {
     margin: 0px 0px 10px 0px;
 }
 
+/********* Lists of links *********/
 .wrapper ul {
     margin: 0px;
     padding: 0px;
@@ -32,19 +35,18 @@
     color: #b05d13;
 }
 
-.wrapper .category {
-    color: #666;
-}
-
+/********* Categories div (on the left) *********/
 .wrapper .categories {
     padding-right: 15px;
     border-right: 2px solid #808080;
 }
 
+/********* Latest div (on the right) *********/
 .wrapper .latest {
     padding-left: 15px
 }
 
+/********* New link *********/
 .wrapper .new {
     padding: 10px 15px;
     background-color: #2ecc71;
@@ -60,6 +62,7 @@
     margin-right: 5px
 }
 
+/********* Media query to make content of .wrapper responsive *********/
 @media only screen and (max-width: 550px) {
     .wrapper {
         flex-direction: column

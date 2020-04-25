@@ -1,12 +1,16 @@
 ﻿<nav>
     <div class="container">
         <h2>Entertainment Lib</h2>
+        
+        <!-- List of navigation links -->
         <ul>
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
             <li>@Html.ActionLink("TV programs", "Index", "TVProgram")</li>
             @Html.Partial("_LoginPartial")
         </ul>
+
+        <!-- Nav menu toggler button -->
         <i class="fas fa-bars"></i>
     </div>
 </nav>

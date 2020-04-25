@@ -11,10 +11,13 @@ namespace Entertainment_Lib.Controllers
 {
     public class HomeController : Controller
     {
+        // The context that represents connection
+        // to the database
         private ApplicationDbContext _context { get; set; }
 
         public HomeController()
         {
+            // Initialize the context
             _context = new ApplicationDbContext();
         }
 
@@ -23,8 +26,11 @@ namespace Entertainment_Lib.Controllers
             _context.Dispose();
         }
 
+        // GET: /
         public ActionResult Index()
         {
+            // Get the latest 5 movies and TV programs
+            // and pass them to the view through the ViewModel
             HomeViewModel model = new HomeViewModel()
             {
                 latestMovies = _context.Movies.Take(5).ToList(),

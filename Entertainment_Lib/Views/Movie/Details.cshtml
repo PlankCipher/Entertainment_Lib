@@ -1,11 +1,14 @@
 ﻿@model Entertainment_Lib.ViewModels.MovieHomeViewModel
 
 @{
+    // The title and css file of the page
     ViewBag.Title = Model.movie.Name;
     ViewBag.Css = "~/Content/movies_details.css";
 }
 
+<!-- The wrapping div -->
 <div class="wrapper">
+    <!-- Categories div (on the left, or on top) -->
     <div class="categories">
         <h3>Categories</h3>
         <ul>
@@ -13,15 +16,29 @@
             <li>@Html.ActionLink("TVPrograms", "Index", "TVProgram")</li>
         </ul>
     </div>
+    
+    <!-- Movie div (on the right, or at the bottom) -->
     <div class="movie">
+        @* Movie name *@
         <h3>@Model.movie.Name</h3>
+
+        @* Movie Description *@
         <p class="description">@Model.movie.Description</p>
+
+        @* 
+            If the current user is logged in, and is the
+            owner of this movie, display edit and delete
+            buttons
+        *@
         @if (User.Identity.IsAuthenticated && Model.currentUserId == Model.movie.Owner.Id)
         {
+            // Edit button
             <a href="/Movie/Edit/@Model.movie.Id" class="edit">
                 <i class="far fa-edit"></i>
                 Edit
             </a>
+
+            // Delete button
             <a href="/Movie/Delete/@Model.movie.Id" class="delete">
                 <i class="far fa-trash-alt"></i>
                 Delete

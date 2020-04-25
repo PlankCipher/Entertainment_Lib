@@ -1,11 +1,14 @@
 ﻿@model Entertainment_Lib.ViewModels.HomeViewModel 
 
 @{
+    // The title and css file of the page
     ViewBag.Title = "Home";
     ViewBag.Css = "~/Content/index.css";
 }
-
+    
+    <!-- The wrapping div -->
     <div class="wrapper">
+        <!-- Categories div (on the left, or on top) -->
         <div class="categories">
             <h3>Categories</h3>
             <ul>
@@ -13,20 +16,37 @@
                 <li>@Html.ActionLink("TVPrograms", "Index", "TVProgram")</li>
             </ul>
         </div>
+        
+        <!-- Latest items div (on the right, or at the bottom) -->
         <div class="latest">
             <h3>Latest</h3>
             <ul>
+                @*
+                    Iterate over each movie in the latest movies
+                    passed through the view model
+                *@
                 @foreach (Entertainment_Lib.Models.Movie movie in Model.latestMovies)
                 {
+                    // And add a link for its details page
                     <li>
-                        @Html.ActionLink(movie.Name, "Details", "Movie", new { id=movie.Id } , null)
+                        @Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)
+
+                        @* With a little gray category name on its right *@
                         <span class='category'>(Movie)</span>
                     </li>
                 }
+
+                @*
+                    Iterate over each movie in the latest movies
+                    passed through the view model
+                *@
                 @foreach (Entertainment_Lib.Models.TVProgram tvprogram in Model.latestTVPrograms)
                 {
+                    // And add a link for its details page
                     <li>
                         @Html.ActionLink(tvprogram.Name, "Details", "TVProgram", new { id = tvprogram.Id }, null)
+
+                        @* With a little gray category name on its right *@
                         <span class='category'>(TVProgram)</span>
                     </li>
                 }

@@ -1,7 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    <!-- Logout button -->
     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+    
+    // Log out form
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display: none" }))
     {
         @Html.AntiForgeryToken()
@@ -9,6 +12,9 @@
 }
 else
 {
+    <!-- Sign up button -->
     <li>@Html.ActionLink("Sign up", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    
+    <!-- Login button -->
     <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
 }

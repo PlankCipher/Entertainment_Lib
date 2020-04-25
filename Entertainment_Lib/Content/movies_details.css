@@ -1,14 +1,17 @@
-﻿.wrapper {
+﻿/********* Wrapping div *********/
+.wrapper {
     border: 2px solid var(--primary-color);
     border-radius: 3px;
     display: flex;
     padding: 15px
 }
 
+/********* Headings inside *********/
 .wrapper h3 {
     margin: 0px 0px 10px 0px;
 }
 
+/********* Common between Edit and Delete links *********/
 .wrapper .edit, .wrapper .delete {
     margin-top: 15px;
     display: inline-block;
@@ -27,15 +30,18 @@
     color: #fff
 }
 
+/********* Edit link *********/
 .wrapper .edit {
     background-color: #2ecc71;
 }
 
+/********* Delete link *********/
 .wrapper .delete {
     background-color: #e74c3c;
     margin: 4px
 }
 
+/********* Lists of links *********/
 .wrapper ul {
     margin: 0px;
     padding: 0px;
@@ -59,19 +65,23 @@
     color: #b05d13;
 }
 
+/********* Categories div (on the left) *********/
 .wrapper .categories {
     padding-right: 15px;
     border-right: 2px solid #808080;
 }
 
+/********* Movie div (on the right) *********/
 .wrapper .movie {
     padding-left: 15px
 }
 
+/********* Description of movie *********/
 .wrapper .movie p {
     font-size: 17px;
 }
 
+/********* Media query to make content of .wrapper responsive *********/
 @media only screen and (max-width: 550px) {
     .wrapper {
         flex-direction: column
@@ -88,6 +98,7 @@
     }
 }
 
+/********* Media query to fix "Delete" button on very small screens *********/
 @media only screen and (max-width: 260px) {
     .wrapper .delete {
         display: block;

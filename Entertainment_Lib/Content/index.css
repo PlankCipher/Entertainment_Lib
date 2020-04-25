@@ -1,14 +1,17 @@
-﻿.wrapper {
+﻿/********* Big wrapping div *********/
+.wrapper {
     border: 2px solid var(--primary-color);
     border-radius: 3px;
     display: flex;
     padding: 15px
 }
 
+/********* Headings inside *********/
 .wrapper h3{
     margin: 0px 0px 10px 0px;
 }
 
+/********* List of links *********/
 .wrapper ul {
     margin: 0px;
     padding: 0px;
@@ -36,15 +39,18 @@
     color: #666;
 }
 
+/********* Categories div (on the left) *********/
 .wrapper .categories {
     padding-right: 15px;
     border-right: 2px solid #808080;
 }
 
+/********* Latest div (on the right) *********/
 .wrapper .latest {
     padding-left: 15px
 }
 
+/********* Media query to make the content of .wrapper responsive *********/
 @media only screen and (max-width: 550px){
     .wrapper {
         flex-direction: column

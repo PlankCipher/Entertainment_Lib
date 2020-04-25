@@ -5,28 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title | Entertainment Lib</title>
     @Styles.Render("~/Content/css")
+    
+    @* 
+        If the ViewBag.Css variable is set,
+        get the style sheet mentioned in it
+    *@
     @(ViewBag.Css == null ? null : Styles.Render(ViewBag.Css))
+    
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+    @* Render Nav bar partiabl view *@
     @Html.Partial("_Navbar")
 
     <main>
         <div class="container">
+            @* Render the body of the view *@
             @RenderBody()
         </div>
     </main>
 
+    @* Render Footer partiabl view *@
     @Html.Partial("_Footer")
 
     @Scripts.Render("~/bundles/jquery")
+    <!-- Font Awesome kit -->
     <script src="https://kit.fontawesome.com/a467a599ad.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             var togglerBtn = $("nav i");
 
             togglerBtn.click(function () {
+                // Change the icon of the nav menu togller
+                // button on click
                 if (togglerBtn.hasClass("fa-bars")) {
                     togglerBtn.removeClass("fa-bars");
                     togglerBtn.addClass("fa-times");
@@ -35,8 +47,11 @@
                     togglerBtn.addClass("fa-bars");
                 }
 
+                // And display the nav menu
                 $("nav ul").toggleClass("displayed");
 
+                // Set the position of the nav menu based
+                // on the number of list items in it
                 var navMenuItems = $(".displayed").children("li");
                 $(".displayed").css("bottom", `${navMenuItems.length * -51}px`);
             });

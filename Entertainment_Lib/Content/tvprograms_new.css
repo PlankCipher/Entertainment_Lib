@@ -1,4 +1,5 @@
-﻿input:not([type=submit]), textarea {
+﻿/********* Name and Description fields *********/
+input:not([type=submit]), textarea {
     display: block;
     width: 100%;
     max-width: 400px;
@@ -7,6 +8,7 @@
     border: 2px solid #cfcfcf;
 }
 
+/********* Common between all inputs *********/
 input, textarea {
     font-size: 18px;
     border-radius: 3px;
@@ -16,6 +18,13 @@ input:focus, textarea:focus {
     border: 2px solid #8f8f8f
 }
 
+/********* Description field *********/
+textarea {
+    resize: vertical;
+    min-height: 300px
+}
+
+/********* Submit button *********/
 .submitBtn {
     padding: 10px;
     background-color: #2ecc71;
@@ -25,9 +34,4 @@ input:focus, textarea:focus {
     display: block;
     text-align: center;
     width: 100px
-}
-
-textarea {
-    resize: vertical;
-    min-height: 300px
 }
