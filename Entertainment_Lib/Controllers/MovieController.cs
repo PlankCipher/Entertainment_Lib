@@ -1,4 +1,5 @@
 ﻿using Entertainment_Lib.Models;
+using Entertainment_Lib.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,16 @@ namespace Entertainment_Lib.Controllers
 
         public ActionResult Details(int id)
         {
-            Movie movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            Movie movie = _context.Movies.Include("Owner").SingleOrDefault(m => m.Id == id);
+            
             if (movie != null)
             {
-                return View(movie);
+                MovieHomeViewModel model = new MovieHomeViewModel()
+                {
+                    movie = movie,
+                    currentUserId = User.Identity.IsAuthenticated ? User.Identity.GetUserId() : ""
+                };
+                return View(model);
             } else
             {
                 return RedirectToAction("Index");
@@ -47,6 +54,23 @@ namespace Entertainment_Lib.Controllers
             return View("MovieForm", model);
         }
 
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            Movie movie = _context.Movies.Include("Owner").SingleOrDefault(m => m.Id == id);
+            if (movie != null)
+            {
+                string userId = User.Identity.GetUserId();
+                if (movie.Owner.Id == userId)
+                {
+                    return View("MovieForm", movie);
+                }
+            }
+            
+            return RedirectToAction("Index");
+            
+        }
+
         [HttpPost]
         public ActionResult Save(Movie model)
         {
@@ -61,6 +85,11 @@ namespace Entertainment_Lib.Controllers
             if (model.Id == 0)
             {
                 _context.Movies.Add(model);
+            } else
+            {
+                Movie movieFromDB = _context.Movies.Single(m => m.Id == model.Id);
+                movieFromDB.Name = model.Name;
+                movieFromDB.Description = model.Description;
             }
             _context.SaveChanges();
 
